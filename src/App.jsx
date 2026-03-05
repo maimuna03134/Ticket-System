@@ -2,68 +2,67 @@ import { Suspense, use, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-// import Banner from "./Components/Banner";
-// import Footer from "./Components/Footer";
+import Banner from "./components/Banner";
+import { ToastContainer } from "react-toastify";
+import ResolvedTask from "./components/ResolvedTask";
+import TaskStatus from "./components/TaskStatus";
+import CustomerTickets from "./components/CustomerTickets";
+import Container from "./components/Container";
 
-// import CustomerTickets from "./Components/CustomerTickets";
-// import TaskStatus from "./Components/TaskStatus";
-// import ResolvedTask from "./Components/ResolvedTask";
-// import { toast, ToastContainer } from "react-toastify";
-// import Container from "./Components/Container";
 
-// const fetchCustomerData = async () => {
-//   const res = await fetch("/data.json");
-//   return res.json()
-// };
+const fetchCustomerData = async () => {
+  const res = await fetch("/data.json");
+  return res.json()
+};
 
-// const customerDataPromise = fetchCustomerData();
+const customerDataPromise = fetchCustomerData();
 
 function App() {
-  // const cardData = use(customerDataPromise);
-  // console.log(cardData);
-  // const [cards, setCards] = useState(() =>
-  //   cardData.map((card) => ({ ...card, status: "Open" }))
-  // );
-  // const [inProgressCount, setInProgressCount] = useState(0);
-  // const [resolvedCount, setResolvedCount] = useState(0);
+  const cardData = use(customerDataPromise);
+  console.log(cardData);
+  const [cards, setCards] = useState(() =>
+    cardData.map((card) => ({ ...card, status: "Open" }))
+  );
+  const [inProgressCount, setInProgressCount] = useState(0);
+  const [resolvedCount, setResolvedCount] = useState(0);
 
-  // const handleCardClick = (id) => {
-  //   let isClicked = false;
-  //   setCards((element) =>
-  //     element.map((card) => {
+  const handleCardClick = (id) => {
+    let isClicked = false;
+    setCards((element) =>
+      element.map((card) => {
 
 
-  //       if (card.id === id && card.status === "Open") {
-  //         if (!isClicked) {
-  //           toast(`🔵 ${card.title} 👉 is now In-Progress 😊`);
-  //           setInProgressCount((element) => element + 1);
-  //           isClicked = true;
-  //         }
-  //         return { ...card, status: "In-Progress" };
-  //       }
-  //       return card;
-  //     })
-  //   );
-  // };
+        if (card.id === id && card.status === "Open") {
+          if (!isClicked) {
+            toast(`🔵 ${card.title} 👉 is now In-Progress 😊`);
+            setInProgressCount((element) => element + 1);
+            isClicked = true;
+          }
+          return { ...card, status: "In-Progress" };
+        }
+        return card;
+      })
+    );
+  };
 
-  // const handleComplete = (id) => {
-  //   let isClicked = false;
-  //   setCards((element) =>
-  //     element.map((card) => {
+  const handleComplete = (id) => {
+    let isClicked = false;
+    setCards((element) =>
+      element.map((card) => {
 
-  //       if (card.id === id && card.status === "In-Progress") {
-  //         if (!isClicked) {
-  //           toast(`✔️ ${card.title} has been completed ☺️`);
-  //           setResolvedCount((element) => element + 1);
-  //           setInProgressCount((element) => element - 1);
-  //           isClicked = true;
-  //         }
-  //         return { ...card, status: "Resolved" };
-  //       }
-  //       return card;
-  //     })
-  //   );
-  // };
+        if (card.id === id && card.status === "In-Progress") {
+          if (!isClicked) {
+            toast(`✔️ ${card.title} has been completed ☺️`);
+            setResolvedCount((element) => element + 1);
+            setInProgressCount((element) => element - 1);
+            isClicked = true;
+          }
+          return { ...card, status: "Resolved" };
+        }
+        return card;
+      })
+    );
+  };
 
   return (
     <>
@@ -71,14 +70,14 @@ function App() {
       <Navbar/>
 
       {/* banner */}
-      {/* <Banner
+      <Banner
         inProgressCount={inProgressCount}
         resolvedCount={resolvedCount}
-      ></Banner> */}
+      ></Banner>
 
       {/* customer ticket + task status + resolved task */}
 
-      {/* <Container>
+      <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10 px-4">
           {cards.length > 0 && (
             <div className="md:col-span-2">
@@ -106,12 +105,12 @@ function App() {
             ></ResolvedTask>
           </div>
         </div>
-      </Container> */}
+      </Container>
 
       {/* footer */}
       <Footer></Footer>
 
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </>
   );
 }
