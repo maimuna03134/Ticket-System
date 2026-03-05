@@ -1,14 +1,13 @@
 import { Suspense, use, useState } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Banner from "./components/Banner";
-import { ToastContainer } from "react-toastify";
-import ResolvedTask from "./components/ResolvedTask";
-import TaskStatus from "./components/TaskStatus";
-import CustomerTickets from "./components/CustomerTickets";
-import Container from "./components/Container";
-
+import Banner from "./Components/Banner";
+import Footer from "./Components/Footer";
+import Navbar from "./Components/Navbar";
+import CustomerTickets from "./Components/CustomerTickets";
+import TaskStatus from "./Components/TaskStatus";
+import ResolvedTask from "./Components/ResolvedTask";
+import { toast, ToastContainer } from "react-toastify";
+import Container from "./Components/Container";
 
 const fetchCustomerData = async () => {
   const res = await fetch("/data.json");
@@ -19,7 +18,7 @@ const customerDataPromise = fetchCustomerData();
 
 function App() {
   const cardData = use(customerDataPromise);
-  console.log(cardData);
+  // console.log(cardData);
   const [cards, setCards] = useState(() =>
     cardData.map((card) => ({ ...card, status: "Open" }))
   );
@@ -67,7 +66,7 @@ function App() {
   return (
     <>
       {/* navbar */}
-      <Navbar/>
+      <Navbar></Navbar>
 
       {/* banner */}
       <Banner
