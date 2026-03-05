@@ -1,11 +1,12 @@
 import React from 'react';
-import Container from './Container';
+
 import {
     FaTwitter,
     FaLinkedinIn,
     FaFacebookF,
     FaEnvelope,
 } from "react-icons/fa";
+import Container from './Container';
 
 
 const Footer = () => {

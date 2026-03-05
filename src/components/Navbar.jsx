@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "./Container";
 
+
 const Navbar = () => {
     return (
         <div className="bg-white  shadow border-b-[0.5px] border-gray-300">

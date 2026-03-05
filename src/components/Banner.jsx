@@ -3,6 +3,7 @@ import inProgressBg from '../assets/leftbg.png'
 import resolvedBg from '../assets/rightbg.png'
 import Container from './Container';
 
+
 const Banner = ({ inProgressCount, resolvedCount }) => {
     return (
         <Container>

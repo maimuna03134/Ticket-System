@@ -1,13 +1,12 @@
 import { Suspense, use, useState } from "react";
 import "./App.css";
-import Banner from "./Components/Banner";
-import Footer from "./Components/Footer";
-import Navbar from "./Components/Navbar";
-import CustomerTickets from "./Components/CustomerTickets";
-import TaskStatus from "./Components/TaskStatus";
-import ResolvedTask from "./Components/ResolvedTask";
+import Banner from "./components/Banner";
+import Navbar from "./components/Navbar";
+import Container from "./components/Container";
+import CustomerTickets from "./components/CustomerTickets";
+import Footer from "./components/Footer";
 import { toast, ToastContainer } from "react-toastify";
-import Container from "./Components/Container";
+
 
 const fetchCustomerData = async () => {
   const res = await fetch("/data.json");

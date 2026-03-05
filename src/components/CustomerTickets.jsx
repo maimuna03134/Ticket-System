@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "./Container";
+
 import { FaRegCalendarAlt } from "react-icons/fa";
 
 const CustomerTickets = ({ cards, handleCardClick }) => {
