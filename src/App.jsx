@@ -1,6 +1,7 @@
 import { Suspense, use, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 // import Banner from "./Components/Banner";
 // import Footer from "./Components/Footer";
 
@@ -108,9 +109,9 @@ function App() {
       </Container> */}
 
       {/* footer */}
-      {/* <Footer></Footer>
+      <Footer></Footer>
 
-      <ToastContainer /> */}
+      {/* <ToastContainer /> */}
     </>
   );
 }
