@@ -6,6 +6,8 @@ import Container from "./components/Container";
 import CustomerTickets from "./components/CustomerTickets";
 import Footer from "./components/Footer";
 import { toast, ToastContainer } from "react-toastify";
+import TaskStatus from "./components/TaskStatus";
+import ResolvedTask from "./components/ResolvedTask";
 
 
 const fetchCustomerData = async () => {
